@@ -1,0 +1,29 @@
+{
+  "name": "todo-final-project",
+  "version": "1.0.0",
+  "description": "final project for js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kenny0527/final-project-js.git"
+  },
+  "author": "Ken, Shynar, Jay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kenny0527/final-project-js/issues"
+  },
+  "homepage": "https://github.com/Kenny0527/final-project-js#readme",
+  "keywords": [],
+  "dependencies": {
+    "axios": "^0.27.2",
+    "config": "^3.3.7",
+    "cor": "^0.0.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongodb": "^4.8.0"
+  }
+}
