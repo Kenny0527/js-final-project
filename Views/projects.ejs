@@ -15,7 +15,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <link rel="stylesheet" href="./Style/style.css" />
+    <link rel="stylesheet" href="../Style/style.css" />
   </head>
   <body>
     <div class="row" id="nav">
@@ -31,11 +31,11 @@
 
     <div class="row" id="buttons_row">
       <div class="col-6">
-        <button class="btn btn-dark">Add task</button>
+        <button class="btn btn-dark btn_create_project">Create project</button>
       </div>
       <div class="col-6" id="edit_remove_btns">
-        <button class="btn btn-warning">Edit</button>
-        <button class="btn btn-danger">Remove</button>
+        <button class="btn btn-warning btn_edit">Edit</button>
+        <button class="btn btn-danger btn_remove">Remove</button>
       </div>
     </div>
 
@@ -45,25 +45,13 @@
 
     <div class="row">
       <div class="col-3" id="left_side_nav">
-        <p class="left_nav_item"><a href="project.ejs">Projects</a></p>
-        <p class="left_nav_item"><a href="tasks.ejs">Tasks</a></p>
-        <p class="left_nav_item"><a href="calendar.ejs">Calendar</a></p>
-        <p class="left_nav_item"><a href="recycle_bin.ejs">Recycle bin</a></p>
+        <p class="left_nav_items"><a href="project.ejs">Projects</a></p>
+        <p class="left_nav_items"><a href="tasks.ejs">Tasks</a></p>
+        <p class="left_nav_items"><a href="calendar.ejs">Calendar</a></p>
+        <p class="left_nav_items"><a href="recycle_bin.ejs">Recycle bin</a></p>
       </div>
 
-      <div class="col-9" id="main_container">
-        <div class="row" id="task_container">
-          <div class="col-3" id="to_do_container">
-            <p>To Do</p>
-          </div>
-          <div class="col-3" id="in_progress_container">
-            <p>In Progress</p>
-          </div>
-          <div class="col-3" id="done_container">
-            <p>Done</p>
-          </div>
-        </div>
-      </div>
+      <div class="col-9" id="main_container"></div>
     </div>
 
     <script
