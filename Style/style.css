@@ -1,0 +1,101 @@
+body {
+  text-indent: 20px;
+}
+
+#nav {
+  height: 80px;
+  line-height: 80px;
+  background-color: royalblue;
+  color: white;
+}
+
+.nav_item {
+  display: inline;
+}
+
+.nav_item a:link {
+  color: white;
+}
+.nav_item a:hover {
+  font-weight: bold;
+}
+
+.nav_item a:active {
+  font-weight: bold;
+}
+
+#nav_item {
+  text-align: right;
+  word-spacing: 10px;
+}
+
+#buttons_row {
+  height: 60px;
+  line-height: 60px;
+  word-spacing: 10px;
+}
+
+#project_name_row {
+  height: 30px;
+  line-height: 30px;
+  text-decoration: double;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#left_side_nav,
+#main_container {
+  height: 100vh;
+  padding-top: 30px;
+}
+
+.left_nav_item {
+  display: block;
+  line-height: 2.5;
+}
+
+.left_nav_item a:link {
+  text-decoration: none;
+}
+
+.left_nav_item a:hover {
+  font-weight: bold;
+}
+
+#edit_remove_btns {
+  text-align: right;
+}
+
+#to_do_container {
+  position: relative;
+  background-color: lightgray;
+  height: 80vh;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#in_progress_container {
+  position: relative;
+  background-color: yellow;
+  height: 80vh;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#done_container {
+  position: relative;
+  background-color: lightgreen;
+  height: 80vh;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#task_container {
+  justify-content: center;
+}
