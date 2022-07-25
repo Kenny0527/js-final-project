@@ -40,5 +40,5 @@ MongoClient.connect(accessString, { useUnifiedTopology: true }).then(
 
 // will be setup with express routes, home, about us, and others.
 server.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(__dirname + "/Views/projects.ejs");
 });
