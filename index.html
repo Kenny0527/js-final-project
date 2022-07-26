@@ -14,16 +14,62 @@
     <link rel="stylesheet" href="./public/style.css" />
   </head>
   <body>
-    <div class="row" id="nav">
-      <div class="col-2" id="app_name">
-        <p>TODO_APP</p>
-      </div>
-      <div class="col-10" id="nav_item">
-        <p class="nav_item"><a href="home.html">Home</a></p>
-        <p class="nav_item"><a href="about.html">About</a></p>
-        <p class="nav_item"><a href="projects.ejs">Application</a></p>
-      </div>
+
+  <!-- nav bar for home screen -->
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top navbar-"
+  style="height: 35px">
+    <a
+      href="#"
+      class ="navbar-brand mb-0 h1">
+      <img
+        class="d-inline-block align-top"
+        src="https://media.istockphoto.com/vectors/check-vector-id871478670?k=20&m=871478670&s=612x612&w=0&h=qh3cQ0BOokeBWiJQp6fvjX-JpIIimTtAOkwe_Yt0y6k="
+        alt="picture of checkmark"
+        width="50" height="30" />
+      TODO
+    </a>
+    <button class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbar-nav"
+      class="navbar-toggler"
+      aria-controls="navbar-nav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar-nav">
+      <ul class="navbar-nav">
+        <!-- link for home -->
+        <li class="nav-item active">
+          <a class="nav-link active" href="./Views/home.html">Home</a>
+        </li>
+
+        <!-- link for about -->
+        <li class="nav-item active">
+          <a class="nav-link active" href="./Views/about.html">About</a>
+        </li>
+
+        <!-- link for login  -->
+        <li class="nav-item active">
+          <a class="nav-link active" href="#">Login</a>
+        </li>
+      </ul>
     </div>
+  </nav>
+
+<!--    <div class="row" id="nav">-->
+<!--      <div class="col-2" id="app_name">-->
+<!--        <p>TODO_APP</p>-->
+<!--      </div>-->
+<!--      <div class="col-10" id="nav_item">-->
+<!--        <p class="nav_item"><a href="home.html">Home</a></p>-->
+<!--        <p class="nav_item"><a href="about.html">About</a></p>-->
+<!--        <p class="nav_item"><a href="projects.ejs">Application</a></p>-->
+<!--      </div>-->
+<!--    </div>-->
 
     <div class="row" id="buttons_row">
       <div class="col-6" id="add_button">
