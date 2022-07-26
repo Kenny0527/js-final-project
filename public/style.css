@@ -1,194 +1,198 @@
 :root {
-  --color-primary: rgb(47, 129, 213);
-  --color-danger: rgb(230, 110, 91);
-  --color-success: rgb(42, 124, 80);
-  --color-warning: rgb(225, 56, 60);
-  --color-white: rgb(238, 245, 245);
-  --color-info-dark: rgb(52, 60, 60);
-  --color-info-light: rgb(224, 240, 241);
-  --color-dark: rgb(62, 67, 76);
-  --color-light: rgba(132, 139, 200, 0.18);
-  --color-primary-variant: rgb(130, 56, 242);
-  --color-dark-variant: rgb(54, 8, 124);
-  --color-background: rgb(214, 222, 225);
+	--color-primary: rgb(47, 129, 213);
+	--color-danger: rgb(230, 110, 91);
+	--color-success: rgb(42, 124, 80);
+	--color-warning: rgb(225, 56, 60);
+	--color-white: rgb(238, 245, 245);
+	--color-info-dark: rgb(52, 60, 60);
+	--color-info-light: rgb(224, 240, 241);
+	--color-dark: rgb(62, 67, 76);
+	--color-light: rgba(132, 139, 200, 0.18);
+	--color-primary-variant: rgb(130, 56, 242);
+	--color-dark-variant: rgb(54, 8, 124);
+	--color-background: rgb(214, 222, 225);
 
-  --card-border-radius: 2rem;
-  --border-radius-1: 0.4rem;
-  --border-radius-2: 0.8rem;
-  --border-radius-3: 1.2rem;
+	--card-border-radius: 2rem;
+	--border-radius-1: 0.4rem;
+	--border-radius-2: 0.8rem;
+	--border-radius-3: 1.2rem;
 
-  --card-padding: 1.8rem;
-  --padding-1: 1.2rem;
+	--card-padding: 1.8rem;
+	--padding-1: 1.2rem;
 
-  --box-shadow: 0 2rem 3rem var(--color-light);
+	--box-shadow: 0 2rem 3rem var(--color-light);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  appearance: none;
-  border: 0;
-  text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	appearance: none;
+	border: 0;
+	text-decoration: none;
+	list-style: none;
+	box-sizing: border-box;
 }
 
 html {
-  font-size: 14px;
+	font-size: 14px;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
-  user-select: none;
-  overflow-x: hidden;
+	width: 100vw;
+	height: 100vh;
+	user-select: none;
+	overflow-x: hidden;
 }
 
 #app_name,
 #project_name_row,
 #add_button {
-  text-indent: 20px;
+	text-indent: 20px;
 }
 #nav {
-  height: 80px;
-  line-height: 80px;
-  background-color: royalblue;
-  color: white;
+	height: 80px;
+	line-height: 80px;
+	background-color: royalblue;
+	color: white;
 }
 
 .nav_item {
-  display: inline;
+	display: inline;
 }
 
 .nav_item a:link {
-  color: white;
+	color: white;
 }
 .nav_item a:hover {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .nav_item a:active {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 #nav_item {
-  text-align: right;
-  word-spacing: 10px;
+	text-align: right;
+	word-spacing: 10px;
 }
 
 #buttons_row {
-  height: 60px;
-  margin-top: 20px;
-  word-spacing: 10px;
+	height: 60px;
+	margin-top: 20px;
+	word-spacing: 10px;
 }
 
 #project_name_row {
-  height: 30px;
-  line-height: 30px;
-  text-decoration: double;
-  font-weight: bold;
-  text-decoration: underline;
+	height: 30px;
+	line-height: 30px;
+	text-decoration: double;
+	font-weight: bold;
+	text-decoration: underline;
 }
 
 #left_side_nav,
 #main_container {
-  height: 100vh;
-  padding-top: 30px;
-  text-indent: 20px;
+	height: 100vh;
+	padding-top: 30px;
+	text-indent: 20px;
 }
 
 .left_nav_item {
-  display: block;
-  line-height: 2.5;
+	display: block;
+	line-height: 2.5;
 }
 
 .left_nav_item a:link {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .left_nav_item a:hover {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 #edit_remove_btns {
-  text-align: right;
+	text-align: right;
 }
 
 #to_do_container {
-  position: relative;
-  background-color: lightgray;
-  height: 80vh;
-  margin-left: 5px;
-  margin-right: 5px;
-  text-align: center;
-  text-decoration: underline;
+	position: relative;
+	background-color: lightgray;
+	height: 80vh;
+	margin-left: 5px;
+	margin-right: 5px;
+	text-align: center;
+	text-decoration: underline;
 }
 
 #in_progress_container {
-  position: relative;
-  background-color: yellow;
-  height: 80vh;
-  margin-left: 5px;
-  margin-right: 5px;
-  text-align: center;
-  text-decoration: underline;
+	position: relative;
+	background-color: yellow;
+	height: 80vh;
+	margin-left: 5px;
+	margin-right: 5px;
+	text-align: center;
+	text-decoration: underline;
 }
 
 #done_container {
-  position: relative;
-  background-color: lightgreen;
-  height: 80vh;
-  margin-left: 5px;
-  margin-right: 5px;
-  text-align: center;
-  text-decoration: underline;
+	position: relative;
+	background-color: lightgreen;
+	height: 80vh;
+	margin-left: 5px;
+	margin-right: 5px;
+	text-align: center;
+	text-decoration: underline;
 }
 
 #task_container {
-  justify-content: center;
+	justify-content: center;
 }
 
 .modal-body {
-  text-align: left;
-  word-spacing: normal;
+	text-align: left;
+	word-spacing: normal;
 }
 
 .form-text {
-  margin-bottom: 0rem;
-  margin-top: 0rem;
-  padding: 0rem;
-  text-indent: initial;
+	margin-bottom: 0rem;
+	margin-top: 0rem;
+	padding: 0rem;
+	text-indent: initial;
 }
 
 .form-label {
-  margin-bottom: 0rem;
-  margin-top: 0rem;
+	margin-bottom: 0rem;
+	margin-top: 0rem;
 }
 
 .mb3 {
-  margin-top: 0rem;
-  margin-bottom: 0rem;
-  padding: 0rem;
+	margin-top: 0rem;
+	margin-bottom: 0rem;
+	padding: 0rem;
 }
 
 .text-indent-initial {
-  text-indent: -20px;
+	text-indent: -20px;
 }
 
 #main_container {
-  display: flex;
-  justify-content: space-between;
-  padding-right: 500px;
+	display: flex;
+	justify-content: space-between;
+	padding-right: 500px;
 }
 
 #main_container_tasks {
-  display: flex;
-  justify-content: space-between;
-  padding-right: 300px;
+	display: flex;
+	justify-content: space-between;
+	padding-right: 300px;
 }
 
 .card {
-  display: flex;
-  height: fit-content;
+	display: flex;
+	height: fit-content;
+}
+
+.table {
+	width: 100%;
 }
