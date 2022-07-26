@@ -1,7 +1,8 @@
-body {
+#app_name,
+#project_name_row,
+#add_button {
   text-indent: 20px;
 }
-
 #nav {
   height: 80px;
   line-height: 80px;
@@ -31,7 +32,7 @@ body {
 
 #buttons_row {
   height: 60px;
-  line-height: 60px;
+  margin-top: 20px;
   word-spacing: 10px;
 }
 
@@ -47,6 +48,7 @@ body {
 #main_container {
   height: 100vh;
   padding-top: 30px;
+  text-indent: 20px;
 }
 
 .left_nav_item {
@@ -98,4 +100,31 @@ body {
 
 #task_container {
   justify-content: center;
+}
+
+.modal-body {
+  text-align: left;
+  word-spacing: normal;
+}
+
+.form-text {
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+  padding: 0rem;
+  text-indent: initial;
+}
+
+.form-label {
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+}
+
+.mb3 {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  padding: 0rem;
+}
+
+.text-indent-initial {
+  text-indent: -20px;
 }
