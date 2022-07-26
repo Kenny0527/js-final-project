@@ -15,7 +15,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <link rel="stylesheet" href="../Style/style.css" />
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <div class="row" id="nav">
@@ -45,13 +45,41 @@
 
     <div class="row">
       <div class="col-3" id="left_side_nav">
-        <p class="left_nav_items"><a href="project.ejs">Projects</a></p>
-        <p class="left_nav_items"><a href="tasks.ejs">Tasks</a></p>
+        <p class="left_nav_items"><a href="projects">Projects</a></p>
+        <p class="left_nav_items"><a href="tasks">Tasks</a></p>
         <p class="left_nav_items"><a href="calendar.ejs">Calendar</a></p>
         <p class="left_nav_items"><a href="recycle_bin.ejs">Recycle bin</a></p>
       </div>
 
-      <div class="col-9" id="main_container"></div>
+      <div class="col-9" id="main_container_tasks">
+        <div class="container text-center">
+          <div class="row align-items-start">
+            <div class="col">
+              One of three columns
+              <div class="card w-75">
+                <div class="card-body">
+                  <p class="card-text">
+                    With supporting text below as a natural lead-in to
+                    additional content.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">One of three columns</div>
+            <div class="col">One of three columns</div>
+          </div>
+          <div class="row align-items-center">
+            <div class="col">One of three columns</div>
+            <div class="col">One of three columns</div>
+            <div class="col">One of three columns</div>
+          </div>
+          <div class="row align-items-end">
+            <div class="col">One of three columns</div>
+            <div class="col">One of three columns</div>
+            <div class="col">One of three columns</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script
