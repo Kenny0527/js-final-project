@@ -17,8 +17,8 @@
   --border-radius-2: 0.8rem;
   --border-radius-3: 1.2rem;
 
-  --card-padding: 1.8rem;
-  --padding-1: 1.2rem;
+  --card-padding: 0.8rem;
+  --padding-1: 0.8rem;
 
   --box-shadow: 0 2rem 3rem var(--color-light);
 }
@@ -191,4 +191,20 @@ body {
 .card {
   display: flex;
   height: fit-content;
+  overflow-x: hidden;
+  margin: 5px;
+}
+
+.todo-status {
+  margin: var(--card-padding);
+}
+
+.btn-dark {
+  position: relative;
+  left: 50%;
+}
+
+.btn {
+  margin-left: 5px;
+  justify-content: end;
 }

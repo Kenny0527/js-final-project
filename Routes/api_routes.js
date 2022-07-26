@@ -15,6 +15,7 @@ MongoClient.connect(accessString, { useUnifiedTopology: true }).then(
   (client) => {
     const db = client.db("todomanager");
     const projectsCollection = db.collection("projects");
+    const taskCollection = db.collection("tasks");
     /**
      * TODO - setup CRUD calls that will interact with our project.
      * Expected features:
@@ -36,14 +37,35 @@ MongoClient.connect(accessString, { useUnifiedTopology: true }).then(
 
     apiRouter_tasks.get("/", (req, res) => {
       // filter the destination
-      projectsCollection
+      taskCollection
         .find()
         .toArray()
         .then((results) => {
           //console.log(results);
-          res.render("tasks", { projects: results });
+          res.render("tasks", { tasks: results });
         })
         .catch((error) => console.error(error));
+    });
+
+    apiRouter_tasks.get("/project/:project_id", (req, res) => {
+      // TODO: grab param of project_id
+      // find the tasks by that project id
+      const project_id = req.params.project_id;
+      taskCollection
+        .find({ project_id })
+        .toArray()
+        .then((results) => {
+          //console.log(results);
+          res.render("tasks", { tasks: results });
+        })
+        .catch((error) => console.error(error));
+    });
+    // POST Calls to backend
+    apiRouter_tasks.post("/addtask:project_id", (req, res, next) => {
+      const project_id = req.params.project_id;
+      taskCollection.insertOne(req.body).then((results) => {
+        res.redirect("/tasks/projects/" + project_id);
+      });
     });
   }
 );
