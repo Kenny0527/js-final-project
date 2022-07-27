@@ -61,11 +61,43 @@ MongoClient.connect(accessString, { useUnifiedTopology: true }).then(
         .catch((error) => console.error(error));
     });
     // POST Calls to backend
-    apiRouter_tasks.post("/addtask:project_id", (req, res, next) => {
+    apiRouter_tasks.post("/addtask:project_id", (req, res) => {
       const project_id = req.params.project_id;
       taskCollection.insertOne(req.body).then((results) => {
         res.redirect("/tasks/projects/" + project_id);
       });
+    });
+
+    // this is supposed to add project tasks and project to recycle bin
+    // then removes all tasks and proejct from collections related.
+    // renders project page with new results.
+    apiRouter_projects.delete("/delete:project_id", (req, res) => {
+      const project_id = req.params.project_id;
+      const delete_tasks = taskCollection.find({ project_id }).toArray();
+      for (let index = 0; index < delete_tasks.length; index++) {
+        delete delete_tasks[i];
+      }
+      const delete_project = projectCollection.find({ _id }).toArray();
+      for (let index = 0; index < delete_project.length; index++) {
+        delete delete_project[i];
+      }
+      res.redirect("projects");
+    });
+
+    // this is supposed to delete a task associated with a certain
+    // project.
+    apiRouter_tasks.delete("/delete:_id", (req, res) => {
+      const task_id = req.params._id;
+      const project_id = taskCollection[task_id].project_id;
+      delete taskCollection[task_id];
+      taskCollection
+        .find({ project_id })
+        .toArray()
+        .then((results) => {
+          //console.log(results);
+          res.render("tasks", { tasks: results });
+        })
+        .catch((error) => console.error(error));
     });
   }
 );
