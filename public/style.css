@@ -1,26 +1,4 @@
 :root {
-	--color-primary: rgb(47, 129, 213);
-	--color-danger: rgb(230, 110, 91);
-	--color-success: rgb(42, 124, 80);
-	--color-warning: rgb(225, 56, 60);
-	--color-white: rgb(238, 245, 245);
-	--color-info-dark: rgb(52, 60, 60);
-	--color-info-light: rgb(224, 240, 241);
-	--color-dark: rgb(62, 67, 76);
-	--color-light: rgba(132, 139, 200, 0.18);
-	--color-primary-variant: rgb(130, 56, 242);
-	--color-dark-variant: rgb(54, 8, 124);
-	--color-background: rgb(214, 222, 225);
-
-	--card-border-radius: 2rem;
-	--border-radius-1: 0.4rem;
-	--border-radius-2: 0.8rem;
-	--border-radius-3: 1.2rem;
-
-	--card-padding: 1.8rem;
-	--padding-1: 1.2rem;
-
-	--box-shadow: 0 2rem 3rem var(--color-light);
 }
 
 * {
@@ -189,10 +167,4 @@ body {
 }
 
 .card {
-	display: flex;
-	height: fit-content;
-}
-
-.table {
-	width: 100%;
 }
