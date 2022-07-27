@@ -39,6 +39,7 @@ html {
 }
 
 body {
+  position: relative;
   width: 100vw;
   height: 100vh;
   user-select: none;
@@ -192,3 +193,92 @@ body {
   display: flex;
   height: fit-content;
 }
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: rgb(62, 67, 76);
+  padding: 6px 14px;
+}
+.sidebar .collapsable{
+  color: white;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+.sidebar #btn{
+  position:absolute;
+  top:40px;
+  color: white;
+  left: 85%;
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  transform: translatex(-50%);
+}
+.sidebar ul{
+  margin-top:20px;
+}
+.sidebar ul li{
+  position: relative;
+  height:50px;
+  width: 100%;
+  margin: 0 5px;
+  list-style: none;
+  line-height: 50px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.sidebar ul li .popup{
+  position: absolute;
+  left: 122px;
+  top: 0;
+  transform: translateY(-50%);
+  border-radius:6px;
+  height: 35px;
+  width: 122px;
+  background:whitesmoke;
+  line-height: 35px;
+  text-align: center;
+  box-shadow: 0px 5px 10px rgba(132, 139, 200, 0.18);
+  transition: 0s;
+  opacity: 0;
+  pointer-events: none;
+}
+.sidebar ul li:hover .popup{
+  transition: all .5s ease-in-out;
+  opacity: 1;
+  top:50%;
+}
+.sidebar ul li a{
+  color: white;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.sidebar ul li a:hover{
+  background:lightcoral;
+
+}
+sidebar ul li a i{
+  height:50px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height:50px;
+  text-align: center;
+}
+
+
