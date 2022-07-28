@@ -175,7 +175,7 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
         .catch((error) => console.error(error));
     });
 
-    apiRouter_recycle_bin.get("/", (req, res) => {
+    /*apiRouter_recycle_bin.get("/", (req, res) => {
       recycleBinCollection
         .find()
         .toArray()
@@ -243,66 +243,66 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
           })
           .catch((error) => console.error(error));
       }
-    );
-  
-    		// GET tasks and projects using TAGs
-		apiRouter_recycle_bin.get("/", async (req, res) => {
-			const recycled_tasks = await taskCollection
-				.find({ isActive: "false" })
-				.toArray();
-			const recycled_projects = await projectsCollection
-				.find({ isActive: "false" })
-				.toArray();
-			res.render("recycle_bin", {
-				recycle_bin_tasks: recycled_tasks,
-				recycle_bin_projects: recycled_projects,
-			});
-		});
+    );*/
 
-		// DELETE Task with isActive TAG
-		apiRouter_recycle_bin.get("/delete/:_id/", async (req, res) => {
-			let objectId = mongodb.ObjectId;
-			const item_id = req.params._id;
-			await taskCollection.deleteMany({ project_id: item_id });
-			await projectsCollection.deleteOne({ _id: new objectId(item_id) });
-			await taskCollection.deleteOne({ _id: new objectId(item_id) });
-			const recycled_tasks = await taskCollection
-				.find({ isActive: "false" })
-				.toArray();
-			const recycled_projects = await projectsCollection
-				.find({ isActive: "false" })
-				.toArray();
-			res.render("recycle_bin", {
-				recycle_bin_tasks: recycled_tasks,
-				recycle_bin_projects: recycled_projects,
-			});
-		});
+    // GET tasks and projects using TAGs
+    apiRouter_recycle_bin.get("/", async (req, res) => {
+      const recycled_tasks = await taskCollection
+        .find({ isActive: "false" })
+        .toArray();
+      const recycled_projects = await projectsCollection
+        .find({ isActive: "false" })
+        .toArray();
+      res.render("recycle_bin", {
+        recycle_bin_tasks: recycled_tasks,
+        recycle_bin_projects: recycled_projects,
+      });
+    });
 
-		apiRouter_recycle_bin.get("/restore/:_id/", async (req, res) => {
-			let objectId = mongodb.ObjectId;
-			const item_id = req.params._id;
-			await taskCollection.updateMany(
-				{ project_id: objectId(item_id) },
-				{ $set: { isActive: "true" } }
-			);
-			await projectsCollection.updateOne(
-				{ _id: objectId(item_id) },
-				{ $set: { isActive: "true" } }
-			);
-			await taskCollection.updateOne(
-				{ _id: objectId(item_id) },
-				{ $set: { isActive: "true" } }
-			);
-			const recycled_tasks = await taskCollection
-				.find({ isActive: "false" })
-				.toArray();
-			const recycled_projects = await projectsCollection
-				.find({ isActive: "false" })
-				.toArray();
-			res.render("recycle_bin", {
-				recycle_bin_tasks: recycled_tasks,
-				recycle_bin_projects: recycled_projects,
-			});
-		});
+    // DELETE Task with isActive TAG
+    apiRouter_recycle_bin.get("/delete/:_id/", async (req, res) => {
+      let objectId = mongodb.ObjectId;
+      const item_id = req.params._id;
+      await taskCollection.deleteMany({ project_id: item_id });
+      await projectsCollection.deleteOne({ _id: new objectId(item_id) });
+      await taskCollection.deleteOne({ _id: new objectId(item_id) });
+      const recycled_tasks = await taskCollection
+        .find({ isActive: "false" })
+        .toArray();
+      const recycled_projects = await projectsCollection
+        .find({ isActive: "false" })
+        .toArray();
+      res.render("recycle_bin", {
+        recycle_bin_tasks: recycled_tasks,
+        recycle_bin_projects: recycled_projects,
+      });
+    });
+
+    apiRouter_recycle_bin.get("/restore/:_id/", async (req, res) => {
+      let objectId = mongodb.ObjectId;
+      const item_id = req.params._id;
+      await taskCollection.updateMany(
+        { project_id: objectId(item_id) },
+        { $set: { isActive: "true" } }
+      );
+      await projectsCollection.updateOne(
+        { _id: objectId(item_id) },
+        { $set: { isActive: "true" } }
+      );
+      await taskCollection.updateOne(
+        { _id: objectId(item_id) },
+        { $set: { isActive: "true" } }
+      );
+      const recycled_tasks = await taskCollection
+        .find({ isActive: "false" })
+        .toArray();
+      const recycled_projects = await projectsCollection
+        .find({ isActive: "false" })
+        .toArray();
+      res.render("recycle_bin", {
+        recycle_bin_tasks: recycled_tasks,
+        recycle_bin_projects: recycled_projects,
+      });
+    });
   })
   .catch((error) => console.error(error));
