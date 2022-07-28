@@ -305,3 +305,7 @@ table {
 	position: relative;
 	width: min-content;
 }
+
+.thead-dark {
+	background-color: darkgray;
+}

@@ -18,6 +18,8 @@ MongoClient.connect(accessString, { useUnifiedTopology: true }).then(
 		const projectsCollection = db.collection("projects");
 		const taskCollection = db.collection("tasks");
 		const recycleBinCollection = db.collection("recycle_bin");
+		const tmpTasksCollection = db.collection("tmp_tasks");
+		const tmpProjectsCollection = db.collection("tmp_projects");
 		/**
 		 * TODO - setup CRUD calls that will interact with our project.
 		 * Expected features:
@@ -131,7 +133,6 @@ MongoClient.connect(accessString, { useUnifiedTopology: true }).then(
 						.toArray();
 					await recycleBinCollection.deleteMany({ project_id });
 				}
-				// filter the recycle_bin
 				recycleBinCollection
 					.find()
 					.toArray()
@@ -143,9 +144,36 @@ MongoClient.connect(accessString, { useUnifiedTopology: true }).then(
 			}
 		);
 
-		// RESTORE Project
-    
-
 		// RESTORE Task
+		apiRouter_recycle_bin.get(
+			"/restore/:_id/:type/:project_id/:task_id",
+			async (req, res) => {
+				let objectId = mongodb.ObjectId;
+				const item_id = req.params._id;
+				const project_id = req.params.project_id;
+				const task_id = req.params.task_id;
+				const type = req.params.type;
+
+				if (type === "task") {
+					const tmp1 = await recycleBinCollection
+						.find({ project_id })
+						.toArray();
+					const tmp2 = new Map([tmp1]);
+					const obj1 = Object.fromEntries(tmp2);
+					tmpTasksCollection.insertOne(obj1);
+					await recycleBinCollection.deleteOne({
+						_id: new objectId(item_id),
+					});
+				}
+				recycleBinCollection
+					.find()
+					.toArray()
+					.then((results) => {
+						//console.log(results);
+						res.render("recycle_bin", { recycle_bin: results });
+					})
+					.catch((error) => console.error(error));
+			}
+		);
 	}
 );

@@ -72,7 +72,12 @@
 										>Remove</a
 									>
 								</td>
-								<td><a href="#">Restore</a></td>
+								<td>
+									<a
+										href="<%= `/recycle_bin/restore/${recycle_bin[i]._id}/${recycle_bin[i].type}/${recycle_bin[i].project_id }/${recycle_bin[i].task_id }` %>"
+										>Restore</a
+									>
+								</td>
 							</tr>
 							<% } %>
 						</tbody>
