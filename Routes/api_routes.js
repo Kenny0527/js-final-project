@@ -131,12 +131,12 @@ MongoClient.connect(accessString, { useUnifiedTopology: true }).then(
 						.toArray();
 					await recycleBinCollection.deleteMany({ project_id });
 				}
-				// filter the destination
+				// filter the recycle_bin
 				recycleBinCollection
 					.find()
 					.toArray()
 					.then((results) => {
-						console.log(results);
+						//console.log(results);
 						res.render("recycle_bin", { recycle_bin: results });
 					})
 					.catch((error) => console.error(error));
@@ -144,6 +144,7 @@ MongoClient.connect(accessString, { useUnifiedTopology: true }).then(
 		);
 
 		// RESTORE Project
+    
 
 		// RESTORE Task
 	}
