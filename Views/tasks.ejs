@@ -57,7 +57,11 @@
                 ></button>
               </div>
               <div class="modal-body">
-                <form id="add_task" action="/tasks/addtask/" method="POST">
+                <form
+                  id="add_task"
+                  action="/tasks/project/<%= project_id %>"
+                  method="POST"
+                >
                   <div class="mb-3">
                     <label for="input_task_name" class="form-label"
                       >Task name:</label
@@ -65,13 +69,28 @@
                     <input
                       type="text"
                       class="form-control"
-                      value="<% %>"
                       id="input_task_name"
+                      name="title"
                       aria-describedby="task_name_help"
                     />
                     <div id="task_name_help" class="form-text">
                       Please enter task name
                     </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="input_task_name" class="form-label"
+                      >Status:</label
+                    >
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      name="status"
+                    >
+                      <option selected>Open this select menu</option>
+                      <option value="todo">Todo</option>
+                      <option value="inprogress">in Progress</option>
+                      <option value="done">Done</option>
+                    </select>
                   </div>
                   <div class="mb-3">
                     <label for="input_task_date" class="form-label"
@@ -81,6 +100,7 @@
                       type="date"
                       class="form-control"
                       id="input_task_date"
+                      name="date"
                       aria-describedby="task_date_help"
                     />
                     <div id="task_date_help" class="form-text">
@@ -95,6 +115,7 @@
                       type="text"
                       class="form-control"
                       id="input_task_assignment"
+                      name="assignedTo"
                       aria-describedby="task_assignment_help"
                     />
                     <div id="task_assignment_help" class="form-text">
@@ -111,6 +132,7 @@
                       type="text"
                       class="form-control"
                       id="input_task_description"
+                      name="description"
                       aria-describedby="task_description_help"
                     ></textarea>
                     <div id="task_description_help" class="form-text">
@@ -152,7 +174,8 @@
               <div class="card-body">
                 <!-- The task card to view-->
                 <% for(var i = 0; i < tasks.length; i++) {%> <%
-                if(tasks[i].status === 'todo') { %>
+                if(tasks[i].status === 'todo' && tasks[i].isActive === "true") {
+                %>
                 <div class="card todo-status">
                   <h5 class="card-header"><%= tasks[i].title %></h5>
                   <div class="card-body">
@@ -362,7 +385,8 @@
               <div class="card-body">
                 <!-- The task card to view-->
                 <% for(var i = 0; i < tasks.length; i++) {%> <%
-                if(tasks[i].status === 'inprogress') { %>
+                if(tasks[i].status === 'inprogress' && tasks[i].isActive ===
+                "true") { %>
                 <div class="card todo-status">
                   <h5 class="card-header"><%= tasks[i].title %></h5>
                   <div class="card-body">
@@ -558,7 +582,8 @@
               <div class="card-body">
                 <!-- The task card to view, check for which project sent it here-->
                 <% for(var i = 0; i < tasks.length; i++) {%> <%
-                if(tasks[i].status === 'done') { %>
+                if(tasks[i].status === 'done' && tasks[i].isActive === 'true') {
+                %>
                 <div class="card todo-status">
                   <h5 class="card-header"><%= tasks[i].title %></h5>
                   <div class="card-body">

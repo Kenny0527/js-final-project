@@ -1,6 +1,7 @@
 import express from "express";
 import * as mongodb from "mongodb";
 import connectionString from "../Utility/dbaccesskey.js";
+import { firstProjectTask } from "../Utility/validation.js";
 
 const apiRouter_projects = express.Router();
 export const apiRouter_tasks = express.Router();
@@ -82,16 +83,38 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
         .catch((error) => console.error(error));
     });
 
-    apiRouter_tasks.get("/project/:project_id", (req, res) => {
+    apiRouter_tasks.get("/project/:project_id", async (req, res) => {
       // TODO: grab param of project_id
       // find the tasks by that project id
       const project_id = req.params.project_id;
+      //const active_tasks = await taskCollection.find({ project_id }).toArray();
+      //taskCollection.insertOne(isFirstTask(active_tasks, project_id));
       taskCollection
-        .find({ project_id })
+        .find({ project_id, isActive: "true" })
         .toArray()
         .then((results) => {
           //console.log(results);
-          res.render("tasks", { tasks: results });
+          res.render("tasks", { tasks: results, project_id });
+        })
+        .catch((error) => console.error(error));
+    });
+
+    apiRouter_tasks.post("/project/:project_id", (req, res) => {
+      const project_id = req.params.project_id;
+      const { title, status, description, assignedTo, date } = req.body;
+      const newTask = {
+        title,
+        status,
+        description,
+        assignedTo,
+        date,
+        project_id,
+        isActive: "true",
+      };
+      taskCollection
+        .insertOne(newTask)
+        .then((results) => {
+          res.redirect(`/tasks/project/${project_id}`);
         })
         .catch((error) => console.error(error));
     });
@@ -113,16 +136,9 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
         .toArray()
         .then((results) => {
           //console.log(results);
-          res.render("tasks", { tasks: results });
+          res.render("tasks", { tasks: results, project_id });
         })
         .catch((error) => console.error(error));
-    });
-
-    apiRouter_tasks.post("/addtask/:project_id", (req, res) => {
-      const project_id = req.params.project_id;
-      taskCollection.insertOne(req.body).then((results) => {
-        res.redirect("/tasks/projects/" + project_id);
-      });
     });
 
     // this is supposed to add project tasks and project to recycle bin
@@ -148,6 +164,7 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
       const task_id = req.params._id;
       const project_id = taskCollection[task_id].project_id;
       delete taskCollection[task_id];
+
       taskCollection
         .find({ project_id })
         .toArray()
