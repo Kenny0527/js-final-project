@@ -144,7 +144,7 @@ MongoClient.connect(accessString, { useUnifiedTopology: true }).then(
 			}
 		);
 
-		// RESTORE Task
+		// RESTORE Task from the Recycle bin
 		apiRouter_recycle_bin.get(
 			"/restore/:_id/:type/:project_id/:task_id",
 			async (req, res) => {
