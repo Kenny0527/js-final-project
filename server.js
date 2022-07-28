@@ -8,7 +8,7 @@ import viewRouter from "./Routes/view_routes.js";
 // setting up server object with express functionality
 const server = express();
 // cors Middleware for testing
-
+//server.use(cors());
 server.use(express.urlencoded());
 server.use(express.static("public"));
 server.use("/projects", apiRouter_projects);
