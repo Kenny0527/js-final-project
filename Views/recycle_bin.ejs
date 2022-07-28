@@ -55,10 +55,8 @@
 						<thead class="thead-dark">
 							<tr>
 								<th scope="col">File name</th>
-								<th scope="col">Type</th>
-								<th scope="col">id</th>
-								<th scope="col">project_id</th>
-								<th scope="col">task_id</th>
+								<th scope="col">Task ID</th>
+								<th scope="col">Project ID</th>
 								<th scope="col">Delete file</th>
 								<th scope="col">Restore file</th>
 							</tr>
@@ -68,18 +66,17 @@
 							<% for(var i = 0; i < recycle_bin_tasks.length; i++) {%>
 							<tr>
 								<td><%= recycle_bin_tasks[i].title %></td>
-								<td><%= recycle_bin_tasks[i].type %></td>
 								<td><%= recycle_bin_tasks[i]._id %></td>
 								<td><%= recycle_bin_tasks[i].project_id %></td>
-								<td><%= recycle_bin_tasks[i].task_id %></td>
-
 								<td>
-									<a href="<%= `/recycle_bin/delete/${recycle_bin_tasks[i]._id}` %>"
+									<a
+										href="<%= `/recycle_bin/delete/${recycle_bin_tasks[i]._id}` %>"
 										>Remove</a
 									>
 								</td>
 								<td>
-									<a href="<%= `/recycle_bin/restore/${recycle_bin_tasks[i]._id}` %>"
+									<a
+										href="<%= `/recycle_bin/restore/${recycle_bin_tasks[i]._id}` %>"
 										>Restore</a
 									>
 								</td>
@@ -93,10 +90,7 @@
 						<thead class="thead-dark">
 							<tr>
 								<th scope="col">File name</th>
-								<th scope="col">Type</th>
-								<th scope="col">id</th>
-								<th scope="col">project_id</th>
-								<th scope="col">task_id</th>
+								<th scope="col">Project ID</th>
 								<th scope="col">Delete file</th>
 								<th scope="col">Restore file</th>
 							</tr>
@@ -106,10 +100,7 @@
 							<% for(var i = 0; i < recycle_bin_projects.length; i++) {%>
 							<tr>
 								<td><%= recycle_bin_projects[i].title %></td>
-								<td><%= recycle_bin_projects[i].type %></td>
 								<td><%= recycle_bin_projects[i]._id %></td>
-								<td><%= recycle_bin_projects[i].project_id %></td>
-								<td><%= recycle_bin_projects[i].task_id %></td>
 
 								<td>
 									<a
