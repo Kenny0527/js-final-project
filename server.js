@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import apiRouter_projects, { apiRouter_tasks } from "./Routes/api_routes.js";
+import { apiRouter_recycle_bin } from "./Routes/api_routes.js";
 import viewRouter from "./Routes/view_routes.js";
 
 // setting up server object with express functionality
@@ -16,6 +17,12 @@ server.use("/task", apiRouter_tasks);
 server.use("/tasks.ejs", apiRouter_tasks);
 server.use("/home", viewRouter);
 server.use("/home.html", viewRouter);
+<<<<<<< HEAD
+=======
+server.use("/tasks/addtask", apiRouter_tasks);
+
+server.use("/recycle_bin", apiRouter_recycle_bin);
+>>>>>>> main
 // embedded javascript enabled for html views.
 server.set("view engine", "ejs");
 // server listening on 3000 port
