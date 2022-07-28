@@ -1,6 +1,5 @@
 import express from "express";
 import * as mongodb from "mongodb";
-import connectionString from "../Utility/dbaccesskey.js";
 import { firstProjectTask } from "../Utility/validation.js";
 
 const apiRouter_projects = express.Router();
