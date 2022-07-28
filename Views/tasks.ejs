@@ -189,7 +189,11 @@
                             ></button>
                           </div>
                           <div class="modal-body">
-                            <form id="edit_task">
+                            <form
+                              id="edit_task"
+                              action="/tasks/<%= tasks[i]._id %>/<%= tasks[i].project_id %>"
+                              method="POST"
+                            >
                               <div class="mb-3">
                                 <label for="input_task_name" class="form-label"
                                   >Task name:</label
@@ -199,11 +203,25 @@
                                   class="form-control"
                                   id="input_task_name"
                                   value="<%= tasks[i].title %>"
+                                  name="title"
                                   aria-describedby="task_name_help"
                                 />
                                 <div id="task_name_help" class="form-text">
                                   Please update task name
                                 </div>
+                              </div>
+                              <div class="mb-3">
+                                <select
+                                  class="form-select"
+                                  aria-label="Default select example"
+                                >
+                                  <option selected>
+                                    Open this select menu
+                                  </option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
                               </div>
                               <div class="mb-3">
                                 <label for="input_task_date" class="form-label"
@@ -213,6 +231,7 @@
                                   type="date"
                                   class="form-control"
                                   id="input_task_date"
+                                  name="date"
                                   aria-describedby="task_date_help"
                                 />
                                 <div id="task_date_help" class="form-text">
@@ -230,6 +249,7 @@
                                   class="form-control"
                                   id="input_task_assignment"
                                   value="<%= tasks[i].assignedTo %>"
+                                  name="assignedTo"
                                   aria-describedby="task_assignment_help"
                                 />
                                 <div
@@ -251,6 +271,7 @@
                                   type="text"
                                   class="form-control"
                                   id="input_task_description"
+                                  name="description"
                                   aria-describedby="task_description_help"
                                 >
                                 <%= tasks[i].description %></textarea
@@ -377,7 +398,11 @@
                             ></button>
                           </div>
                           <div class="modal-body">
-                            <form id="edit_task">
+                            <form
+                              id="edit_task"
+                              action="/tasks/<%= tasks[i]._id %>"
+                              method="POST"
+                            >
                               <div class="mb-3">
                                 <label for="input_task_name" class="form-label"
                                   >Task name:</label
@@ -386,6 +411,7 @@
                                   type="text"
                                   class="form-control"
                                   id="input_task_name"
+                                  name="title"
                                   value="<%= tasks[i].title %>"
                                   aria-describedby="task_name_help"
                                 />
@@ -401,6 +427,7 @@
                                   type="date"
                                   class="form-control"
                                   id="input_task_date"
+                                  name="date"
                                   aria-describedby="task_date_help"
                                 />
                                 <div id="task_date_help" class="form-text">
@@ -417,6 +444,7 @@
                                   type="text"
                                   class="form-control"
                                   id="input_task_assignment"
+                                  name="assignedTo"
                                   value="<%= tasks[i].assignedTo %>"
                                   aria-describedby="task_assignment_help"
                                 />
@@ -439,6 +467,7 @@
                                   type="text"
                                   class="form-control"
                                   id="input_task_description"
+                                  name="description"
                                   aria-describedby="task_description_help"
                                 >
                                 <%= tasks[i].description %></textarea
@@ -565,7 +594,11 @@
                             ></button>
                           </div>
                           <div class="modal-body">
-                            <form id="edit_task">
+                            <form
+                              id="edit_task"
+                              action="/tasks/<%= tasks[i]._id %>"
+                              method="POST"
+                            >
                               <div class="mb-3">
                                 <label for="input_task_name" class="form-label"
                                   >Task name:</label
@@ -575,6 +608,7 @@
                                   class="form-control"
                                   id="input_task_name"
                                   value="<%= tasks[i].title %>"
+                                  name="title"
                                   aria-describedby="task_name_help"
                                 />
                                 <div id="task_name_help" class="form-text">
@@ -589,6 +623,7 @@
                                   type="date"
                                   class="form-control"
                                   id="input_task_date"
+                                  name="date"
                                   aria-describedby="task_date_help"
                                 />
                                 <div id="task_date_help" class="form-text">
@@ -606,6 +641,7 @@
                                   class="form-control"
                                   id="input_task_assignment"
                                   value="<%= tasks[i].assignedTo %>"
+                                  name="assignedTo"
                                   aria-describedby="task_assignment_help"
                                 />
                                 <div
@@ -627,6 +663,7 @@
                                   type="text"
                                   class="form-control"
                                   id="input_task_description"
+                                  name="description"
                                   aria-describedby="task_description_help"
                                 >
                                 <%= tasks[i].description %></textarea

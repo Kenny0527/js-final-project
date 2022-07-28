@@ -31,11 +31,91 @@
 
     <div class="row" id="buttons_row">
       <div class="col-6">
-        <button class="btn btn-dark btn_create_project">Create project</button>
-      </div>
-      <div class="col-6" id="edit_remove_btns">
-        <button class="btn btn-warning btn_edit">Edit</button>
-        <button class="btn btn-danger btn_remove">Remove</button>
+        <!-- Button and modal (create new project popup window)-->
+        <button
+          type="button"
+          class="btn btn-dark"
+          data-bs-toggle="modal"
+          data-bs-target="#create_btn_modal"
+        >
+          Create project
+        </button>
+        <div
+          class="modal fade"
+          id="create_btn_modal"
+          tabindex="-1"
+          aria-labelledby="create_modal_label"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="create_modal_label">Create</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form
+                  id="create_project"
+                  action="/projects/newproject"
+                  method="POST"
+                >
+                  <div class="mb-3">
+                    <label for="input_project_name" class="form-label"
+                      >Project name:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="input_project_name"
+                      name="title"
+                      aria-describedby="input_project_name"
+                    />
+                    <div id="project_name_help" class="form-text">
+                      Please enter project name
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="input_project_description" class="form-label"
+                      >Project description:</label
+                    >
+                    <textarea
+                      rows="10"
+                      cols="20"
+                      type="text"
+                      class="form-control"
+                      id="input_project_description"
+                      name="description"
+                      aria-describedby="input_project_description"
+                    ></textarea>
+                    <div id="project_description_help" class="form-text">
+                      Please enter project description
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
+                    <input
+                      type="submit"
+                      class="btn btn-primary"
+                      value="Create"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -51,40 +131,160 @@
         <p class="left_nav_items"><a href="/recycle_bin">Recycle bin</a></p>
       </div>
 
-
       <div class="col-9" id="main_container">
         <% for(var i = 0; i < projects.length; i++) {%>
         <div class="card" style="width: 18rem">
           <div class="card-body">
-            <!-- Example split danger button -->
-            <div class="btn-group">
-              <button type="button" class="btn btn-danger"></button>
-              <button
-                type="button"
-                class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <span class="visually-hidden">Toggle Dropdown</span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#"></a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#">Separated link</a></li>
-              </ul>
-            </div>
             <h5 class="card-title"><%= projects[i].title %></h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
             <p class="card-text"><%= projects[i].description %></p>
             <a
               href="<%= `/tasks/project/${projects[i]._id}` %>"
               class="card-link"
               >See Tasks</a
             >
+            <!-- Button and modal (edit project popup window)-->
+            <button
+              type="button"
+              class="btn btn-warning"
+              data-bs-toggle="modal"
+              data-bs-target="#edit_project_btn_modal_<%= projects[i]._id %>"
+            >
+              Edit
+            </button>
+            <div
+              class="modal fade"
+              id="edit_project_btn_modal_<%= projects[i]._id %>"
+              tabindex="-1"
+              aria-labelledby="edit_project_modal_label"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="edit_project_modal_label">
+                      Edit
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <form
+                      id="edit_project"
+                      action="/projects/<%= projects[i]._id %>"
+                      method="POST"
+                    >
+                      <div class="mb-3">
+                        <label for="input_project_name" class="form-label"
+                          >Project name:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="input_project_name"
+                          name="title"
+                          value="<%= projects[i].title %>"
+                          aria-describedby="project_name_help"
+                        />
+                        <div id="edit_project_name_help" class="form-text">
+                          Please update project name
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label
+                          for="input_project_description"
+                          class="form-label"
+                          >Project description:</label
+                        >
+                        <textarea
+                          rows="10"
+                          cols="20"
+                          type="text"
+                          class="form-control"
+                          id="input_project_description"
+                          name="description"
+                          aria-describedby="project_description_help"
+                        >
+                        <%= projects[i].description %></textarea
+                        >
+                        <div id="project_description_help" class="form-text">
+                          Please update project description
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Cancel
+                        </button>
+                        <input
+                          type="submit"
+                          class="btn btn-warning"
+                          value="Edit"
+                          data-bs-dismiss="modal"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Button and modal (remove project popup window)-->
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-toggle="modal"
+              data-bs-target="#remove_project_btn_modal"
+            >
+              Remove
+            </button>
+            <div
+              class="modal fade"
+              id="remove_project_btn_modal"
+              tabindex="-1"
+              aria-labelledby="remove_modal_label"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="remove_project_btn_modal">
+                      Remove
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Move this Project to the Recycle bin?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
+                    <input
+                      type="submit"
+                      class="btn btn-danger"
+                      value="Remove"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <% } %>

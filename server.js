@@ -11,13 +11,11 @@ server.use(express.urlencoded());
 server.use(express.static("public"));
 server.use("/projects", apiRouter_projects);
 server.use("/project", apiRouter_projects);
-server.use("/projects.ejs", apiRouter_projects);
 server.use("/tasks", apiRouter_tasks);
 server.use("/task", apiRouter_tasks);
 server.use("/tasks.ejs", apiRouter_tasks);
 server.use("/home", viewRouter);
 server.use("/home.html", viewRouter);
-server.use("/tasks/addtask", apiRouter_tasks);
 // embedded javascript enabled for html views.
 server.set("view engine", "ejs");
 // server listening on 3000 port
