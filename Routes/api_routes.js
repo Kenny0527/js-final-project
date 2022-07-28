@@ -1,6 +1,7 @@
 import express from "express";
 import * as mongodb from "mongodb";
 import connectionString from "../Utility/dbaccesskey.js";
+import { firstProjectTask } from "../Utility/validation.js";
 
 const apiRouter_projects = express.Router();
 export const apiRouter_tasks = express.Router();
@@ -82,16 +83,38 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
         .catch((error) => console.error(error));
     });
 
-    apiRouter_tasks.get("/project/:project_id", (req, res) => {
+    apiRouter_tasks.get("/project/:project_id", async (req, res) => {
       // TODO: grab param of project_id
       // find the tasks by that project id
       const project_id = req.params.project_id;
+      //const active_tasks = await taskCollection.find({ project_id }).toArray();
+      //taskCollection.insertOne(isFirstTask(active_tasks, project_id));
       taskCollection
-        .find({ project_id })
+        .find({ project_id, isActive: "true" })
         .toArray()
         .then((results) => {
           //console.log(results);
-          res.render("tasks", { tasks: results });
+          res.render("tasks", { tasks: results, project_id });
+        })
+        .catch((error) => console.error(error));
+    });
+
+    apiRouter_tasks.post("/project/:project_id", (req, res) => {
+      const project_id = req.params.project_id;
+      const { title, status, description, assignedTo, date } = req.body;
+      const newTask = {
+        title,
+        status,
+        description,
+        assignedTo,
+        date,
+        project_id,
+        isActive: "true",
+      };
+      taskCollection
+        .insertOne(newTask)
+        .then((results) => {
+          res.redirect(`/tasks/project/${project_id}`);
         })
         .catch((error) => console.error(error));
     });
@@ -113,16 +136,9 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
         .toArray()
         .then((results) => {
           //console.log(results);
-          res.render("tasks", { tasks: results });
+          res.render("tasks", { tasks: results, project_id });
         })
         .catch((error) => console.error(error));
-    });
-
-    apiRouter_tasks.post("/addtask/:project_id", (req, res) => {
-      const project_id = req.params.project_id;
-      taskCollection.insertOne(req.body).then((results) => {
-        res.redirect("/tasks/projects/" + project_id);
-      });
     });
 
     // this is supposed to add project tasks and project to recycle bin
@@ -148,6 +164,7 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
       const task_id = req.params._id;
       const project_id = taskCollection[task_id].project_id;
       delete taskCollection[task_id];
+
       taskCollection
         .find({ project_id })
         .toArray()
@@ -158,7 +175,7 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
         .catch((error) => console.error(error));
     });
 
-    apiRouter_recycle_bin.get("/", (req, res) => {
+    /*apiRouter_recycle_bin.get("/", (req, res) => {
       recycleBinCollection
         .find()
         .toArray()
@@ -226,6 +243,66 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
           })
           .catch((error) => console.error(error));
       }
-    );
+    );*/
+
+    // GET tasks and projects using TAGs
+    apiRouter_recycle_bin.get("/", async (req, res) => {
+      const recycled_tasks = await taskCollection
+        .find({ isActive: "false" })
+        .toArray();
+      const recycled_projects = await projectsCollection
+        .find({ isActive: "false" })
+        .toArray();
+      res.render("recycle_bin", {
+        recycle_bin_tasks: recycled_tasks,
+        recycle_bin_projects: recycled_projects,
+      });
+    });
+
+    // DELETE Task with isActive TAG
+    apiRouter_recycle_bin.get("/delete/:_id/", async (req, res) => {
+      let objectId = mongodb.ObjectId;
+      const item_id = req.params._id;
+      await taskCollection.deleteMany({ project_id: item_id });
+      await projectsCollection.deleteOne({ _id: new objectId(item_id) });
+      await taskCollection.deleteOne({ _id: new objectId(item_id) });
+      const recycled_tasks = await taskCollection
+        .find({ isActive: "false" })
+        .toArray();
+      const recycled_projects = await projectsCollection
+        .find({ isActive: "false" })
+        .toArray();
+      res.render("recycle_bin", {
+        recycle_bin_tasks: recycled_tasks,
+        recycle_bin_projects: recycled_projects,
+      });
+    });
+
+    apiRouter_recycle_bin.get("/restore/:_id/", async (req, res) => {
+      let objectId = mongodb.ObjectId;
+      const item_id = req.params._id;
+      await taskCollection.updateMany(
+        { project_id: objectId(item_id) },
+        { $set: { isActive: "true" } }
+      );
+      await projectsCollection.updateOne(
+        { _id: objectId(item_id) },
+        { $set: { isActive: "true" } }
+      );
+      await taskCollection.updateOne(
+        { _id: objectId(item_id) },
+        { $set: { isActive: "true" } }
+      );
+      const recycled_tasks = await taskCollection
+        .find({ isActive: "false" })
+        .toArray();
+      const recycled_projects = await projectsCollection
+        .find({ isActive: "false" })
+        .toArray();
+      res.render("recycle_bin", {
+        recycle_bin_tasks: recycled_tasks,
+        recycle_bin_projects: recycled_projects,
+      });
+    });
   })
   .catch((error) => console.error(error));

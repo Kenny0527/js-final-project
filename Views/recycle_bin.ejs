@@ -109,52 +109,93 @@
         </div>
     </div>
 
+			<div class="col-9" id="main_container">
+				<div class="table">
+					<h4>Tasks</h4>
+					<table class="table table-striped table-bordered table-hover">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">File name</th>
+								<th scope="col">Type</th>
+								<th scope="col">id</th>
+								<th scope="col">project_id</th>
+								<th scope="col">task_id</th>
+								<th scope="col">Delete file</th>
+								<th scope="col">Restore file</th>
+							</tr>
+						</thead>
 
-    <!-- recycle bin table -->
-    <div class="col-9" id="main_container">
-        <div class="table">
-            <table class="table table-striped table-bordered table-hover">
-                <thead class="thead-dark">
-                <tr>
-                    <th scope="col">File name</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">project_id</th>
-                    <th scope="col">Delete file</th>
-                    <th scope="col">Restore file</th>
-                </tr>
-                </thead>
+						<tbody>
+							<% for(var i = 0; i < recycle_bin_tasks.length; i++) {%>
+							<tr>
+								<td><%= recycle_bin_tasks[i].title %></td>
+								<td><%= recycle_bin_tasks[i].type %></td>
+								<td><%= recycle_bin_tasks[i]._id %></td>
+								<td><%= recycle_bin_tasks[i].project_id %></td>
+								<td><%= recycle_bin_tasks[i].task_id %></td>
 
-                <tbody>
-                <% for(var i = 0; i < recycle_bin.length; i++) { %>
-                    <tr>
-                        <td><%= recycle_bin[i].title %></td>
-                        <td><%= recycle_bin[i].type %></td>
-                        <td><%= recycle_bin[i].project_id %></td>
-                        <td>
-                            <a
-                                    href="<%= `/recycle_bin/delete/${recycle_bin[i]._id}/${recycle_bin[i].type}/${recycle_bin[i].project_id}` %>"
-                            >Remove</a
-                            >
-                        </td>
-                        <td>
-                            <a
-                                    href="<%= `/recycle_bin/restore/${recycle_bin[i]._id}/${recycle_bin[i].type}/${recycle_bin[i].project_id}/${recycle_bin[i].task_id}` %>"
-                            >Restore</a
-                            >
-                        </td>
-                    </tr>
-                <% } %>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+								<td>
+									<a href="<%= `/recycle_bin/delete/${recycle_bin_tasks[i]._id}` %>"
+										>Remove</a
+									>
+								</td>
+								<td>
+									<a href="<%= `/recycle_bin/restore/${recycle_bin_tasks[i]._id}` %>"
+										>Restore</a
+									>
+								</td>
+							</tr>
+							<% } %>
+						</tbody>
+					</table>
+					<br /><br /><br />
+					<h4>Projects</h4>
+					<table class="table table-striped table-bordered table-hover">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">File name</th>
+								<th scope="col">Type</th>
+								<th scope="col">id</th>
+								<th scope="col">project_id</th>
+								<th scope="col">task_id</th>
+								<th scope="col">Delete file</th>
+								<th scope="col">Restore file</th>
+							</tr>
+						</thead>
 
+						<tbody>
+							<% for(var i = 0; i < recycle_bin_projects.length; i++) {%>
+							<tr>
+								<td><%= recycle_bin_projects[i].title %></td>
+								<td><%= recycle_bin_projects[i].type %></td>
+								<td><%= recycle_bin_projects[i]._id %></td>
+								<td><%= recycle_bin_projects[i].project_id %></td>
+								<td><%= recycle_bin_projects[i].task_id %></td>
 
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossorigin="anonymous"
-></script>
-</body>
+								<td>
+									<a
+										href="<%= `/recycle_bin/delete/${recycle_bin_projects[i]._id}` %>"
+										>Remove</a
+									>
+								</td>
+								<td>
+									<a
+										href="<%= `/recycle_bin/restore/${recycle_bin_projects[i]._id}` %>"
+										>Restore</a
+									>
+								</td>
+							</tr>
+							<% } %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+			crossorigin="anonymous"
+		></script>
+	</body>
 </html>
