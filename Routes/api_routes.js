@@ -175,7 +175,7 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
 				.catch((error) => console.error(error));
 		});
 
-		// GET tasks and projects using TAGs
+		// GET Tasks and Projects using tags
 		apiRouter_recycle_bin.get("/", async (req, res) => {
 			const recycled_tasks = await taskCollection
 				.find({ isActive: "false" })
@@ -189,7 +189,7 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
 			});
 		});
 
-		// DELETE Task with isActive TAG
+		// DELETE Tasks and Project using tags
 		apiRouter_recycle_bin.get("/delete/:_id/", async (req, res) => {
 			let objectId = mongodb.ObjectId;
 			const item_id = req.params._id;
@@ -208,7 +208,7 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
 			});
 		});
 
-		// RESTORE items from the Recycle Bin
+		// RESTORE Tasks and Projects using tags
 		apiRouter_recycle_bin.get("/restore/:_id/", async (req, res) => {
 			let objectId = mongodb.ObjectId;
 			const item_id = req.params._id;
