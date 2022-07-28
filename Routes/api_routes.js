@@ -231,15 +231,32 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
 		// );
 
 		// GET Tasks using TAGs
+		// apiRouter_recycle_bin.get("/", async (req, res) => {
+		// 	taskCollection
+		// 		.find({ isActive: "false" })
+		// 		.toArray()
+		// 		.then((results) => {
+		// 			//console.log(results);
+		// 			res.render("recycle_bin", { recycle_bin: results });
+		// 		})
+		// 		.catch((error) => console.error(error));
+		// });
+
+		// GET tasks and projects using TAGs
 		apiRouter_recycle_bin.get("/", async (req, res) => {
-			taskCollection
+			const recycled_tasks = await taskCollection
 				.find({ isActive: "false" })
-				.toArray()
-				.then((results) => {
-					//console.log(results);
-					res.render("recycle_bin", { recycle_bin: results });
-				})
-				.catch((error) => console.error(error));
+				.toArray();
+			const recycled_projects = await projectsCollection
+				.find({ isActive: "false" })
+				.toArray();
+			const recycled_all = (await recycled_tasks).concat(
+				await recycled_projects
+			);
+			res.render("recycle_bin", {
+				recycle_bin: recycled_tasks,
+				recycle_bin_projects: recycled_projects,
+			});
 		});
 
 		// DELETE Task with isActive TAG
