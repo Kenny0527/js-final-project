@@ -22,7 +22,9 @@
 
   --box-shadow: 0 2rem 3rem var(--color-light);
 }
-
+body {
+  margin: 0;
+}
 * {
   margin: 0;
   padding: 0;
@@ -38,6 +40,10 @@ html {
   font-size: 14px;
 }
 
+.containerNew h1 {
+  text-align: center;
+}
+
 #app_name,
 #project_name_row,
 #add_button {
@@ -48,6 +54,9 @@ html {
   line-height: 80px;
   background-color: royalblue;
   color: white;
+}
+.header {
+  padding: 1.8rem;
 }
 
 .nav_item {
@@ -171,16 +180,13 @@ html {
 
 #main_container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  padding-right: 200px;
+  padding-right: 500px;
 }
 
 #main_container_tasks {
   display: flex;
-  min-width: max-content;
-  flex-wrap: wrap;
-  padding-right: 200px;
+  padding-right: 300px;
 }
 
 .card {
@@ -188,17 +194,15 @@ html {
   margin: 5px;
   height: min-content;
 }
-.container {
+
+.containerNew {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
-}
+/*.row {*/
+/*  !*display: flex;*!*/
+/*  !*justify-content: space-between;*!*/
+/*}*/
 
 .btn-dark {
   position: relative;
@@ -219,13 +223,12 @@ html {
 }
 
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 250px;
+  width: 200px;
   background-color: rgb(62, 67, 76);
-  padding: 6px 14px;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
 }
 .sidebar .collapsable {
   color: white;
@@ -266,12 +269,12 @@ html {
 
 .sidebar ul li .popup {
   position: absolute;
-  left: 122px;
+  right: 130px;
   top: 0;
   transform: translateY(-50%);
   border-radius: 6px;
   height: 35px;
-  width: 122px;
+  width: 75px;
   background: whitesmoke;
   line-height: 35px;
   text-align: center;
@@ -304,11 +307,22 @@ html {
   text-align: center;
 }
 
-table {
-  position: relative;
-  width: min-content;
+.nav {
+  position: absolute;
+  height: 0.5rem;
+}
+.navbar-nav {
+  text-align: right;
+}
+.collapse ul li {
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .thead-dark {
   background-color: darkgray;
+}
+table {
+  position: relative;
+  width: min-content;
 }
