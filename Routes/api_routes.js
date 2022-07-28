@@ -116,7 +116,7 @@ MongoClient.connect(accessString, { useUnifiedTopology: true }).then(
 				.catch((error) => console.error(error));
 		});
 
-		// DELETE items (tasks and projects) from the Recycle bin
+		// DELETE items (tasks, projects) from the Recycle bin
 		apiRouter_recycle_bin.get(
 			"/delete/:_id/:type/:project_id",
 			async (req, res) => {
