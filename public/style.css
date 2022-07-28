@@ -81,7 +81,6 @@ html {
 
 #buttons_row {
   height: 60px;
-  margin-top: 20px;
   word-spacing: 10px;
 }
 
@@ -95,7 +94,7 @@ html {
 
 #left_side_nav,
 #main_container {
-  height: 50vh;
+  height: 100vh;
   padding-top: 30px;
   text-indent: 20px;
 }
@@ -182,11 +181,16 @@ html {
   display: flex;
   justify-content: space-between;
   padding-right: 500px;
+  overflow-y:auto;
+  flex-wrap: wrap;
 }
 
 #main_container_tasks {
   display: flex;
   padding-right: 300px;
+  overflow-y: auto;
+  height:100vh;
+  margin-top: 29px;
 }
 
 .card {
@@ -206,7 +210,7 @@ html {
 
 .btn-dark {
   position: relative;
-  left: 485px;
+  margin-top:30px;
 }
 
 .dropdown {
@@ -325,4 +329,14 @@ html {
 table {
   position: relative;
   width: min-content;
+}
+.col-6{
+  width: 100%;
+  padding-top:5px;
+  padding-right:15px;
+  padding-left:15px;
+}
+
+#edit_remove_btns{
+  padding-top:25px;
 }
