@@ -12,7 +12,6 @@ server.use(express.urlencoded());
 server.use(express.static("public"));
 server.use("/projects", apiRouter_projects);
 server.use("/project", apiRouter_projects);
-server.use("/projects.ejs", apiRouter_projects);
 server.use("/tasks", apiRouter_tasks);
 server.use("/task", apiRouter_tasks);
 server.use("/tasks.ejs", apiRouter_tasks);

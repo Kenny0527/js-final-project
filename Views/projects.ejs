@@ -1,176 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TODO Project Manager</title>
     <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-            crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
     />
     <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/style.css"/>
-</head>
-<body>
-<header class="header">
-    <!-- nav bar for home screen -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <!-- nav bar for home screen -->
 
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top navbar-">
-        <a
-                href="#"
-                class="navbar-brand mb-0 h1">
-            <i class='bx bx-check-square'></i>
-            TODO
+      <nav
+        class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top navbar-"
+      >
+        <a href="#" class="navbar-brand mb-0 h1">
+          <i class="bx bx-check-square"></i>
+          TODO
         </a>
-        <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbar-nav"
-                class="navbar-toggler"
-                aria-controls="navbar-nav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar-nav"
+          class="navbar-toggler"
+          aria-controls="navbar-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbar-nav">
-            <ul class="navbar-nav">
-                <!-- link for home -->
-                <li class="nav-item active">
-                    <a class="nav-link active" href="/home.html">Home</a>
-                </li>
+          <ul class="navbar-nav">
+            <!-- link for home -->
+            <li class="nav-item active">
+              <a class="nav-link active" href="/home.html">Home</a>
+            </li>
 
-                <!-- link for about -->
-                <li class="nav-item active">
-                    <a class="nav-link active" href="/about.html">About</a>
-                </li>
+            <!-- link for about -->
+            <li class="nav-item active">
+              <a class="nav-link active" href="/about.html">About</a>
+            </li>
 
-                <!-- link for login  -->
-                <li class="nav-item active">
-                    <a class="nav-link active" href="#">Login</a>
-                </li>
-            </ul>
+            <!-- link for login  -->
+            <li class="nav-item active">
+              <a class="nav-link active" href="#">Login</a>
+            </li>
+          </ul>
         </div>
-    </nav>
-</header>
-<div class="containerNew">
-    <aside class="sidebar">
+      </nav>
+    </header>
+    <div class="containerNew">
+      <aside class="sidebar">
         <!--        <div class="row">-->
         <!--Nav sidebar -->
         <div class="sidebar col-3">
-            <div class="collapsable">Task Bar</div>
-            <i class='bx bx-menu' id="btn"></i>
+          <div class="collapsable">Task Bar</div>
+          <i class="bx bx-menu" id="btn"></i>
 
-            <ul class="sidebar-list">
-                <li>
-                    <a href="/projects">
-                        <i class='bx bx-task'></i>
-                        <span class="sidebar-name">Projects</span>
-                    </a>
-                    <span class="popup">Projects</span>
-                </li>
-                <li>
-                    <a href="/calendar">
-                        <i class='bx bxs-calendar'></i>
-                        <span class="sidebar-name">Calendar</span>
-                    </a>
-                    <span class="popup">Calendar</span>
-                </li>
-                <li>
-                    <a href="/recycle_bin">
-                        <i class='bx bx-trash'></i>
-                        <span class="sidebar-name">Recycle bin</span>
-                    </a>
-                    <span class="popup">Recycle</span>
-                </li>
-            </ul>
+          <ul class="sidebar-list">
+            <li>
+              <a href="/projects">
+                <i class="bx bx-task"></i>
+                <span class="sidebar-name">Projects</span>
+              </a>
+              <span class="popup">Projects</span>
+            </li>
+            <li>
+              <a href="/calendar">
+                <i class="bx bxs-calendar"></i>
+                <span class="sidebar-name">Calendar</span>
+              </a>
+              <span class="popup">Calendar</span>
+            </li>
+            <li>
+              <a href="/recycle_bin">
+                <i class="bx bx-trash"></i>
+                <span class="sidebar-name">Recycle bin</span>
+              </a>
+              <span class="popup">Recycle</span>
+            </li>
+          </ul>
         </div>
-
-    </aside>
-<!--    <div class="col-9" id="main_container">-->
-        <% for(var i = 0; i < projects.length; i++) { %>
-            <div class="card" style="width: 18rem">
-                <div class="card-body">
-                    <!-- Example split danger button -->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-danger"></button>
-                        <button
-                                type="button"
-                                class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                        >
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#"></a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider"/>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Separated link</a></li>
-                        </ul>
-                    </div>
-                    <h5 class="card-title"><%= projects[i].title %></h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text"><%= projects[i].description %></p>
-                    <a
-                            href="<%= `/tasks/project/${projects[i]._id}` %>"
-                            class="card-link"
-                    >See Tasks</a
-                    >
+      </aside>
+      <div class="row" id="buttons_row">
+        <div class="col-6">
+          <!-- Button and modal (create new project popup window)-->
+          <button
+            type="button"
+            class="btn btn-dark"
+            data-bs-toggle="modal"
+            data-bs-target="#create_btn_modal"
+          >
+            Create project
+          </button>
+          <div
+            class="modal fade"
+            id="create_btn_modal"
+            tabindex="-1"
+            aria-labelledby="create_modal_label"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="create_modal_label">Create</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
+                <div class="modal-body">
+                  <form
+                    id="create_project"
+                    action="/projects/newproject"
+                    method="POST"
+                  >
+                    <div class="mb-3">
+                      <label for="input_project_name" class="form-label"
+                        >Project name:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input_project_name"
+                        name="title"
+                        aria-describedby="input_project_name"
+                      />
+                      <div id="project_name_help" class="form-text">
+                        Please enter project name
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="input_project_description" class="form-label"
+                        >Project description:</label
+                      >
+                      <textarea
+                        rows="10"
+                        cols="20"
+                        type="text"
+                        class="form-control"
+                        id="input_project_description"
+                        name="description"
+                        aria-describedby="input_project_description"
+                      ></textarea>
+                      <div id="project_description_help" class="form-text">
+                        Please enter project description
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancel
+                      </button>
+                      <input
+                        type="submit"
+                        class="btn btn-primary"
+                        value="Create"
+                      />
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-9" id="main_container">
+        <% for(var i = 0; i < projects.length; i++) {%>
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title"><%= projects[i].title %></h5>
+            <p class="card-text"><%= projects[i].description %></p>
+            <a
+              href="<%= `/tasks/project/${projects[i]._id}` %>"
+              class="card-link"
+              >See Tasks</a
+            >
+            <!-- Button and modal (edit project popup window)-->
+            <button
+              type="button"
+              class="btn btn-warning"
+              data-bs-toggle="modal"
+              data-bs-target="#edit_project_btn_modal_<%= projects[i]._id %>"
+            >
+              Edit
+            </button>
+            <div
+              class="modal fade"
+              id="edit_project_btn_modal_<%= projects[i]._id %>"
+              tabindex="-1"
+              aria-labelledby="edit_project_modal_label"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="edit_project_modal_label">
+                      Edit
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <form
+                      id="edit_project"
+                      action="/projects/<%= projects[i]._id %>"
+                      method="POST"
+                    >
+                      <div class="mb-3">
+                        <label for="input_project_name" class="form-label"
+                          >Project name:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="input_project_name"
+                          name="title"
+                          value="<%= projects[i].title %>"
+                          aria-describedby="project_name_help"
+                        />
+                        <div id="edit_project_name_help" class="form-text">
+                          Please update project name
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label
+                          for="input_project_description"
+                          class="form-label"
+                          >Project description:</label
+                        >
+                        <textarea
+                          rows="10"
+                          cols="20"
+                          type="text"
+                          class="form-control"
+                          id="input_project_description"
+                          name="description"
+                          aria-describedby="project_description_help"
+                        >
+                        <%= projects[i].description %></textarea
+                        >
+                        <div id="project_description_help" class="form-text">
+                          Please update project description
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Cancel
+                        </button>
+                        <input
+                          type="submit"
+                          class="btn btn-warning"
+                          value="Edit"
+                          data-bs-dismiss="modal"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Button and modal (remove project popup window)-->
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-toggle="modal"
+              data-bs-target="#remove_project_btn_modal"
+            >
+              Remove
+            </button>
+            <div
+              class="modal fade"
+              id="remove_project_btn_modal"
+              tabindex="-1"
+              aria-labelledby="remove_modal_label"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="remove_project_btn_modal">
+                      Remove
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Move this Project to the Recycle bin?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
+                    <input
+                      type="submit"
+                      class="btn btn-danger"
+                      value="Remove"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <% } %>
-<!--    </div>-->
-</div>
-
-<main class="content">
-
-</main>
-
-
-<div class="row" id="buttons_row">
-    <div class="col-6">
-        <button class="btn btn-dark btn_create_project">Create project</button>
+      </div>
     </div>
-    <div class="col-6" id="edit_remove_btns">
-        <button class="btn btn-warning btn_edit">Edit</button>
-        <button class="btn btn-danger btn_remove">Remove</button>
-    </div>
-</div>
-
-<!--    <div class="row" id="project_name_row">-->
-<!--      <div class="col-12">Project name</div>-->
-<!--    </div>-->
-
-<!--    <div class="row">-->
-<!--      <div class="col-3" id="left_side_nav">-->
-<!--        <p class="left_nav_items"><a href="/projects">Projects</a></p>-->
-<!--        <p class="left_nav_items"><a href="/tasks">Tasks</a></p>-->
-<!--        <p class="left_nav_items"><a href="/calendar">Calendar</a></p>-->
-<!--        <p class="left_nav_items"><a href="/recycle_bin">Recycle bin</a></p>-->
-<!--      </div>-->
-
-
-</div>
-</div>
-</div>
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossorigin="anonymous"
-></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
