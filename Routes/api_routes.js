@@ -157,6 +157,18 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
         })
         .catch((error) => console.error(error));
     });
+
+    apiRouter_recycle_bin.get("/", (req, res) => {
+      recycleBinCollection
+        .find()
+        .toArray()
+        .then((results) => {
+          //console.log(results);
+          res.render("recycle_bin", { recycle_bin: results });
+        })
+        .catch((error) => console.error(error));
+    });
+
     apiRouter_recycle_bin.get(
       "/delete/:_id/:type/:project_id",
       async (req, res) => {
