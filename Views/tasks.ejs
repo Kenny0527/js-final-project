@@ -1,49 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>TODO Project Manager</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-      crossorigin="anonymous"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+            crossorigin="anonymous"
     />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
-    <div class="row" id="nav">
-      <div class="col-2" id="app_name">
-        <p>TODO_APP</p>
-      </div>
-      <div class="col-10" id="nav_item">
-        <p class="nav_item"><a href="../public/home.html">Home</a></p>
-        <p class="nav_item"><a href="../public/about.html">About</a></p>
-        <p class="nav_item"><a href="projects.ejs">Application</a></p>
-      </div>
-    </div>
-
-    <div class="row" id="buttons_row">
-      <div class="col-6">
+    <link
+            href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+<header class="header">
+    <!-- nav bar for home screen -->
+    <nav
+            class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top navbar-"
+    >
+        <a href="#" class="navbar-brand mb-0 h1">
+            <i class="bx bx-check-square"></i>
+            TODO
+        </a>
         <button
-          class="btn btn-dark"
-          data-bs-toggle="modal"
-          data-bs-target="#add_btn_modal"
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar-nav"
+                class="navbar-toggler"
+                aria-controls="navbar-nav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
         >
-          Add task
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-nav">
+            <ul class="navbar-nav">
+                <!-- link for home -->
+                <li class="nav-item active">
+                    <a class="nav-link active" href="/home.html">Home</a>
+                </li>
+
+                <!-- link for about -->
+                <li class="nav-item active">
+                    <a class="nav-link active" href="/about.html">About</a>
+                </li>
+
+                <!-- link for login  -->
+                <li class="nav-item active">
+                    <a class="nav-link active" href="#">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- sidebar -->
+<div class="containerNew">
+    <aside class="sidebar">
+        <!--Nav sidebar -->
+        <div class="sidebar col-3">
+            <div class="collapsable">Task Bar</div>
+            <i class="bx bx-menu" id="btn"></i>
+
+            <ul class="sidebar-list">
+                <li>
+                    <a href="/projects">
+                        <i class="bx bx-task"></i>
+                        <span class="sidebar-name">Projects</span>
+                    </a>
+                    <span class="popup">Projects</span>
+                </li>
+                <li>
+                    <a href="/calendar">
+                        <i class="bx bxs-calendar"></i>
+                        <span class="sidebar-name">Calendar</span>
+                    </a>
+                    <span class="popup">Calendar</span>
+                </li>
+                <li>
+                    <a href="/recycle_bin">
+                        <i class="bx bx-trash"></i>
+                        <span class="sidebar-name">Recycle bin</span>
+                    </a>
+                    <span class="popup">Recycle</span>
+                </li>
+            </ul>
+        </div>
+    </aside>
+<!-- Add task buttons -->
+<div class="row" id="buttons_row">
+    <div class="col-6">
+        <button
+                class="btn btn-dark"
+                data-bs-toggle="modal"
+                data-bs-target="#add_btn_modal"
+        >
+            Add task
         </button>
         <div
-          class="modal fade"
-          id="add_btn_modal"
-          tabindex="-1"
-          aria-labelledby="add_modal_label"
-          aria-hidden="true"
+                class="modal fade"
+                id="add_btn_modal"
+                tabindex="-1"
+                aria-labelledby="add_modal_label"
+                aria-hidden="true"
         >
           <div class="modal-dialog">
             <div class="modal-content">
@@ -156,17 +225,9 @@
         </div>
       </div>
     </div>
-    <div class="row" id="project_name_row">
-      <div class="col-12">Project name</div>
-    </div>
-    <div class="row">
-      <div class="col-3" id="left_side_nav">
-        <p class="left_nav_items"><a href="/projects">Projects</a></p>
-        <p class="left_nav_items"><a href="/tasks">Tasks</a></p>
-        <p class="left_nav_items"><a href="/calendar">Calendar</a></p>
-        <p class="left_nav_items"><a href="/recycle_bin">Recycle bin</a></p>
-      </div>
-      <div class="col-9" id="main_container_tasks">
+
+
+    <div class="col-9" id="main_container_tasks">
         <div class="container text-center">
           <div class="row align-items-start">
             <div class="col card">
@@ -776,59 +837,14 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
-    <nav
-      class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top navbar-"
-      style="height: 35px"
-    >
-      <a href="#" class="navbar-brand mb-0 h1">
-        <img
-          class="d-inline-block align-top"
-          src="https://media.istockphoto.com/vectors/check-vector-id871478670?k=20&m=871478670&s=612x612&w=0&h=qh3cQ0BOokeBWiJQp6fvjX-JpIIimTtAOkwe_Yt0y6k="
-          alt="picture of checkmark"
-          width="50"
-          height="30"
-        />
-        TODO
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbar-nav"
-        class="navbar-toggler"
-        aria-controls="navbar-nav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbar-nav">
-        <ul class="navbar-nav">
-          <!-- link for home -->
-          <li class="nav-item active">
-            <a class="nav-link active" href="../public/home.html">Home</a>
-          </li>
-
-          <!-- link for about -->
-          <li class="nav-item active">
-            <a class="nav-link active" href="../public/about.html">About</a>
-          </li>
-
-          <!-- link for login
-          <li class="nav-item active">
-              <a class="nav-link active" href="#">Login</a>
-          </li> -->
-        </ul>
-      </div>
-    </nav>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-      crossorigin="anonymous"
-    ></script>
-    <script></script>
-  </body>
+</div>
+</div>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"
+></script>
+<script></script>
+</body>
 </html>

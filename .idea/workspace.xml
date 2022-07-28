@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fdce1dd3-880b-4125-bc48-d1d7b89b9413" name="Changes" comment="" />
+    <list default="true" id="fdce1dd3-880b-4125-bc48-d1d7b89b9413" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routes/api_routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/Routes/api_routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utility/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/recycle_bin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/recycle_bin.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/tasks.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/tasks.ejs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,18 +37,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/jaurif/Documents/JS-final-project",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jaurif/Documents/JS-final-project&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jaurif\Documents\JS-final-project\public" />
@@ -60,7 +66,7 @@
       <workItem from="1658689374653" duration="427000" />
       <workItem from="1658758097768" duration="2594000" />
       <workItem from="1658761627195" duration="47492000" />
-      <workItem from="1658937125257" duration="23262000" />
+      <workItem from="1658937125257" duration="37398000" />
     </task>
     <servers />
   </component>
