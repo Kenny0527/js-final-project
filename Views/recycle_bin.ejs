@@ -65,21 +65,21 @@
 						</thead>
 
 						<tbody>
-							<% for(var i = 0; i < recycle_bin.length; i++) {%>
+							<% for(var i = 0; i < recycle_bin_tasks.length; i++) {%>
 							<tr>
-								<td><%= recycle_bin[i].title %></td>
-								<td><%= recycle_bin[i].type %></td>
-								<td><%= recycle_bin[i]._id %></td>
-								<td><%= recycle_bin[i].project_id %></td>
-								<td><%= recycle_bin[i].task_id %></td>
+								<td><%= recycle_bin_tasks[i].title %></td>
+								<td><%= recycle_bin_tasks[i].type %></td>
+								<td><%= recycle_bin_tasks[i]._id %></td>
+								<td><%= recycle_bin_tasks[i].project_id %></td>
+								<td><%= recycle_bin_tasks[i].task_id %></td>
 
 								<td>
-									<a href="<%= `/recycle_bin/delete/${recycle_bin[i]._id}` %>"
+									<a href="<%= `/recycle_bin/delete/${recycle_bin_tasks[i]._id}` %>"
 										>Remove</a
 									>
 								</td>
 								<td>
-									<a href="<%= `/recycle_bin/restore/${recycle_bin[i]._id}` %>"
+									<a href="<%= `/recycle_bin/restore/${recycle_bin_tasks[i]._id}` %>"
 										>Restore</a
 									>
 								</td>
