@@ -22,7 +22,9 @@
 
   --box-shadow: 0 2rem 3rem var(--color-light);
 }
-
+body{
+  margin:0;
+}
 * {
   margin: 0;
   padding: 0;
@@ -38,6 +40,11 @@ html {
   font-size: 14px;
 }
 
+.containerNew h1{
+  text-align: center;
+}
+
+
 #app_name,
 #project_name_row,
 #add_button {
@@ -48,6 +55,9 @@ html {
   line-height: 80px;
   background-color: royalblue;
   color: white;
+}
+.header{
+  padding: 1.8rem;
 }
 
 .nav_item {
@@ -186,16 +196,20 @@ html {
   height: min-content;
 }
 .container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*flex-wrap: wrap;*/
+  /*justify-content: space-between;*/
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
+.containerNew{
+  display:flex;
 }
+
+/*.row {*/
+/*  !*display: flex;*!*/
+/*  !*justify-content: space-between;*!*/
+/*}*/
 
 .btn-dark {
   position: relative;
@@ -216,13 +230,12 @@ html {
 }
 
 .sidebar{
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 250px;
+  width: 200px;
   background-color: rgb(62, 67, 76);
-  padding: 6px 14px;
+  height: 100vh;
+  flex-shrink:0;
+  display: flex;
+  flex-direction: column;
 }
 .sidebar .collapsable{
   color: white;
@@ -263,12 +276,12 @@ html {
 
 .sidebar ul li .popup{
   position: absolute;
-  left: 122px;
+  right: 130px;
   top: 0;
   transform: translateY(-50%);
   border-radius:6px;
   height: 35px;
-  width: 122px;
+  width: 75px;
   background:whitesmoke;
   line-height: 35px;
   text-align: center;
@@ -294,7 +307,7 @@ html {
   background:lightcoral;
 
 }
-sidebar ul li a i{
+.sidebar ul li a i{
   height:50px;
   min-width: 50px;
   border-radius: 12px;
@@ -302,4 +315,16 @@ sidebar ul li a i{
   text-align: center;
 }
 
+.nav{
+  position: absolute;
+  height: .5rem;
+
+}
+.navbar-nav{
+  text-align: right;
+}
+.collapse  ul li{
+  font-size:  15px;
+  font-weight: bold;
+}
 

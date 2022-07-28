@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+    <title>About</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+            crossorigin="anonymous"/>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" href="/style.css"/>
+
+</head>
+<body>
+
+<header class="header">
+    <!-- nav bar for home screen -->
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top navbar-">
+        <a
+                href="#"
+                class="navbar-brand mb-0 h1">
+            <i class='bx bx-check-square'></i>
+            TODO
+        </a>
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar-nav"
+                class="navbar-toggler"
+                aria-controls="navbar-nav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-nav">
+            <ul class="navbar-nav">
+                <!-- link for home -->
+                <li class="nav-item active">
+                    <a class="nav-link active" href="/home.html">Home</a>
+                </li>
+
+                <!-- link for about -->
+                <li class="nav-item active">
+                    <a class="nav-link active" href="/about.html">About</a>
+                </li>
+
+                <!-- link for login  -->
+                <li class="nav-item active">
+                    <a class="nav-link active" href="#">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="containerNew">
+    <aside class="sidebar">
+        <!--        <div class="row">-->
+        <!--Nav sidebar -->
+        <div class="sidebar col-3">
+            <div class="collapsable">Task Bar</div>
+            <i class='bx bx-menu' id="btn"></i>
+
+            <ul class="sidebar-list">
+                <li>
+                    <a href="/projects">
+                        <i class='bx bx-task'></i>
+                        <span class="sidebar-name">Projects</span>
+                    </a>
+                    <span class="popup">Projects</span>
+                </li>
+                <li>
+                    <a href="/calendar">
+                        <i class='bx bxs-calendar'></i>
+                        <span class="sidebar-name">Calendar</span>
+                    </a>
+                    <span class="popup">Calendar</span>
+                </li>
+                <li>
+                    <a href="/recycle_bin">
+                        <i class='bx bx-trash'></i>
+                        <span class="sidebar-name">Recycle bin</span>
+                    </a>
+                    <span class="popup">Recycle</span>
+                </li>
+            </ul>
+        </div>
+
+    </aside>
+    <container class="content">
+        <h1>About Us</h1>
+        <h2>Information about the team</h2>
+        <section>
+            <p>The projects page will allow you to add projects and click associated tasks within said project.
+                You may view dates for starting and ending dates. You may add, edit, or delete projects on this
+                page </p>
+        </section>
+        <h3>Motivation of project</h3>
+        <section>
+            <p>The tasks page will allow you to add projects and click associated tasks within said project.
+                You may view dates for starting and ending dates. You may add, edit, or delete projects on this
+                page </p>
+        </section>
+
+    </container>
+</div>
+</div>
+</body>
+</html>

@@ -11,6 +11,6 @@ const __dirname = path.dirname(__filename);
 // will be setup with express routes, home, about us, and others.
 viewRouter.get("/", (req, res) => {
   //res.sendFile(__dirname + "/index.html");
-  //res.redirect("index.ejs");
-  res.render("index");
+  res.redirect("about.html");
+  // res.render("index");
 });
