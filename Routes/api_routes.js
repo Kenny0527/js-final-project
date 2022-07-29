@@ -41,8 +41,14 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
 
     // adding a new project to the list
     apiRouter_projects.post("/newproject", async (req, res) => {
+      const { title, description } = req.body;
+      const newTask = {
+        title,
+        description,
+        isActive: "true",
+      };
       await projectsCollection
-        .insertOne(req.body)
+        .insertOne(newTask)
         .then((results) => {
           //console.log(results);
           res.redirect("/projects");
