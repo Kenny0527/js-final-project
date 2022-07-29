@@ -187,7 +187,8 @@
       </div>
 
       <div class="col-9" id="main_container">
-        <% for(var i = 0; i < projects.length; i++) {%>
+        <% for(var i = 0; i < projects.length; i++) {%> <%
+        if(projects[i].isActive === "true"){ %>
         <div class="card" style="width: 18rem">
           <div class="card-body">
             <h5 class="card-title"><%= projects[i].title %></h5>
@@ -331,18 +332,14 @@
                     >
                       Cancel
                     </button>
-                    <input
-                      type="submit"
-                      class="btn btn-danger"
-                      value="Remove"
-                    />
+                    <a href="/projects/delete/<%= projects[i]._id %>">REMOVE</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <% } %>
+        <% } %> <% } %>
       </div>
     </div>
     <script
