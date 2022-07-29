@@ -66,7 +66,7 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
         { $set: { isActive: "false" } }
       );
       projectsCollection
-        .find()
+        .find({ isActive: "true" })
         .toArray()
         .then((results) => {
           //console.log(results);
