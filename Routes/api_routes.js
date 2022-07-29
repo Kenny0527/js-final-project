@@ -61,8 +61,13 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
       // filter the destination
       let objectId = mongodb.ObjectId;
       const project_id = req.params._id;
-      const updated = await projectsCollection.updateOne(
+      await projectsCollection.updateOne(
         { _id: objectId(project_id) },
+        { $set: { isActive: "false" } }
+      );
+
+      taskCollection.updateMany(
+        { project_id: project_id },
         { $set: { isActive: "false" } }
       );
       projectsCollection
@@ -71,6 +76,25 @@ MongoClient.connect(accessString, { useUnifiedTopology: true })
         .then((results) => {
           //console.log(results);
           res.render("projects", { projects: results });
+        })
+        .catch((error) => console.error(error));
+    });
+
+    apiRouter_tasks.get("/delete/:_id/:project_id", async (req, res) => {
+      // filter the destination
+      let objectId = mongodb.ObjectId;
+      const task_id = req.params._id;
+      const project_id = req.params.project_id;
+      await taskCollection.updateOne(
+        { _id: objectId(task_id) },
+        { $set: { isActive: "false" } }
+      );
+      taskCollection
+        .find({ project_id, isActive: "true" })
+        .toArray()
+        .then((results) => {
+          //console.log(results);
+          res.render("tasks", { tasks: results, project_id });
         })
         .catch((error) => console.error(error));
     });
