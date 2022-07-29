@@ -298,14 +298,14 @@
                                 <select
                                   class="form-select"
                                   aria-label="Default select example"
-                                  name=""
+                                  name="status"
                                 >
                                   <option selected>
                                     Open this select menu
                                   </option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
+                                  <option value="todo">Todo</option>
+                                  <option value="inprogress">In progress</option>
+                                  <option value="done">Done</option>
                                 </select>
                               </div>
                               <div class="mb-3">
@@ -482,7 +482,7 @@
                           <div class="modal-body">
                             <form
                               id="edit_task"
-                              action="/tasks/<%= tasks[i]._id %>"
+                              action="/tasks/<%= tasks[i]._id %>/<%= tasks[i].project_id %>"
                               method="POST"
                             >
                               <div class="mb-3">
@@ -500,6 +500,20 @@
                                 <div id="task_name_help" class="form-text">
                                   Please update task name
                                 </div>
+                              </div>
+                              <div class="mb-3">
+                                <select
+                                  class="form-select"
+                                  aria-label="Default select example"
+                                  name="status"
+                                >
+                                  <option selected>
+                                    Open this select menu
+                                  </option>
+                                  <option value="todo">Todo</option>
+                                  <option value="inprogress">In progress</option>
+                                  <option value="done">Done</option>
+                                </select>
                               </div>
                               <div class="mb-3">
                                 <label for="input_task_date" class="form-label"
@@ -675,7 +689,7 @@
                           <div class="modal-body">
                             <form
                               id="edit_task"
-                              action="/tasks/<%= tasks[i]._id %>"
+                              action="/tasks/<%= tasks[i]._id %>/<%= tasks[i].project_id %>"
                               method="POST"
                             >
                               <div class="mb-3">
@@ -693,6 +707,20 @@
                                 <div id="task_name_help" class="form-text">
                                   Please update task name
                                 </div>
+                              </div>
+                              <div class="mb-3">
+                                <select
+                                  class="form-select"
+                                  aria-label="Default select example"
+                                  name="status"
+                                >
+                                  <option selected>
+                                    Open this select menu
+                                  </option>
+                                  <option value="todo">Todo</option>
+                                  <option value="inprogress">In progress</option>
+                                  <option value="done">Done</option>
+                                </select>
                               </div>
                               <div class="mb-3">
                                 <label for="input_task_date" class="form-label"
@@ -762,7 +790,11 @@
                                 >
                                   Cancel
                                 </button>
-                                <a href="/tasks/delete/<%= tasks[i]._id %>/<%= tasks[i].project_id %>">REMOVE</a>
+                                <input
+                                  type="submit"
+                                  class="btn btn-warning"
+                                  value="Edit"
+                                />
                               </div>
                             </form>
                           </div>
