@@ -392,13 +392,13 @@
                       type="button"
                       class="btn btn-danger"
                       data-bs-toggle="modal"
-                      data-bs-target="#remove_btn_modal"
+                      data-bs-target="#remove_btn_modal_<%= tasks[i]._id %>"
                     >
                       Remove
                     </button>
                     <div
                       class="modal fade"
-                      id="remove_btn_modal"
+                      id="remove_btn_modal_<%= tasks[i]._id %>"
                       tabindex="-1"
                       aria-labelledby="remove_modal_label"
                       aria-hidden="true"
@@ -585,13 +585,13 @@
                       type="button"
                       class="btn btn-danger"
                       data-bs-toggle="modal"
-                      data-bs-target="#remove_btn_modal"
+                      data-bs-target="#remove_btn_modal_<%= tasks[i]._id %>"
                     >
                       Remove
                     </button>
                     <div
                       class="modal fade"
-                      id="remove_btn_modal"
+                      id="remove_btn_modal_<%= tasks[i]._id %>"
                       tabindex="-1"
                       aria-labelledby="remove_modal_label"
                       aria-hidden="true"
@@ -774,13 +774,13 @@
                       type="button"
                       class="btn btn-danger"
                       data-bs-toggle="modal"
-                      data-bs-target="#remove_btn_modal"
+                      data-bs-target="#remove_btn_modal_<%= tasks[i]._id %>"
                     >
                       Remove
                     </button>
                     <div
                       class="modal fade"
-                      id="remove_btn_modal"
+                      id="remove_btn_modal_<%= tasks[i]._id %>"
                       tabindex="-1"
                       aria-labelledby="remove_modal_label"
                       aria-hidden="true"
@@ -809,11 +809,7 @@
                             >
                               Cancel
                             </button>
-                            <input
-                              type="submit"
-                              class="btn btn-danger"
-                              value="Remove"
-                            />
+                                <a href="/tasks/delete/<%= tasks[i]._id %>/<%= tasks[i].project_id %>">REMOVE</a>
                           </div>
                         </div>
                       </div>
