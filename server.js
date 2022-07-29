@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import apiRouter_projects, { apiRouter_tasks } from "./Routes/api_routes.js";
